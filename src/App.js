@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Homepage from "./components/Homepage";
@@ -25,10 +25,7 @@ function App() {
           <Route
             exact
             path="/"
-            component={Homepage}
-            // render={(props) => {
-            //   <Homepage {...props} query={searched} />;
-            // }}
+            render={(props) => <Homepage {...props} query={searched} />}
           />
           <Route
             path="/home"

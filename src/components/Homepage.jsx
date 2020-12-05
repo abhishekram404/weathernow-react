@@ -4,79 +4,111 @@ import "./css/Homepage.css";
 import axios from "axios";
 import svg1 from "./assets/svg1.svg";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
-
+import Loader from "./Loader";
 const Homepage = (props) => {
   var [data, setData] = useState();
   var [lat, setLat] = useState("");
   var [lon, setLon] = useState("");
   var [isError, setError] = useState(false);
-  var [searched, setSearched] = useState(props.query);
+  var [searched, setSearched] = useState();
 
   useEffect(() => {
     setData(false);
-    if (props.query) {
-      setSearched(props.query);
-    }
 
     function getLoc() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(async (position) => {
-          setLat(position.coords.latitude.toString());
-          setLon(position.coords.longitude.toString());
+      var link;
 
-          if (lat && lon) {
-            let link = searched
-              ? `http://api.openweathermap.org/data/2.5/weather?q=${searched}&units=metric&appId=b59f2b6e8322e621458fe6467f9c31db`
-              : `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appId=b59f2b6e8322e621458fe6467f9c31db`;
+      // If 'searched' state is defined , do this
 
-            const getWeatherData = async () => {
-              var weatherData = await axios(link);
-              setData(await weatherData.data);
-              console.log(await weatherData.data);
-            };
-
-            getWeatherData();
+      if (props.query) {
+        if (props.query == searched) {
+          if (isError) {
+            return;
           }
-        });
-      } else {
-        console.log("Geolocation API isn't supported by your browser");
+          return;
+        } else {
+          setSearched(props.query);
+        }
+        link = `http://api.openweathermap.org/data/2.5/weather?q=${props.query}&units=metric&appId=b59f2b6e8322e621458fe6467f9c31db`;
+
+        const getWeatherData = async () => {
+          try {
+            var weatherData = await axios(link);
+          } catch (err) {
+            setError(true);
+            return;
+          }
+
+          setData(await weatherData.data);
+          setError(false);
+
+          console.log(await weatherData.data);
+        };
+
+        getWeatherData();
+      }
+      // If 'searched' is not defined , do this
+      else {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(async (position) => {
+            setLat(position.coords.latitude.toString());
+            setLon(position.coords.longitude.toString());
+
+            if (lat && lon) {
+              link = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appId=b59f2b6e8322e621458fe6467f9c31db`;
+
+              const getWeatherData = async () => {
+                var weatherData = await axios(link);
+                setData(await weatherData.data);
+                console.log(await weatherData.data);
+              };
+
+              getWeatherData();
+            }
+          });
+        } else {
+          console.log("Geolocation API isn't supported by your browser");
+        }
       }
     }
     getLoc();
-    // } catch (err) {
-    //   console.log("Error occured");
-    //   setError(true);
-    // }
-  }, [lat, lon, props, searched]);
+  }, [lat, lon, props]);
   return (
     <>
-      {data ? (
-        <div className="container">
-          <div className="left">
-            <div className="top">
-              <h1>{data.main.temp}&deg;C</h1>
-            </div>
-            <div className="bottom">
-              <ul>
-                <li>Humidity : {data.main.humidity}</li>
-                <li>Wind : {data.wind.speed} Km/h</li>
-                <li>Latitude : {data.coord.lat}</li>
-                <li>Longitude : {data.coord.lon}</li>
-              </ul>
-            </div>
-          </div>
-          <div className="right">
-            <div className="top">
-              <img src={svg1} alt="Illustration" />
-            </div>
-            <div className="bottom">
-              <LocationOnIcon className="location-icon" />
-              <p>{data.name}</p>
-            </div>
-          </div>
-        </div>
+      {isError ? (
+        <Message msg="Error Occured !!!" />
       ) : (
-        <Message msg="Loading..." />
+        <>
+          {data ? (
+            <div className="container">
+              <div className="left">
+                <div className="top">
+                  <h1>{data.main.temp}&deg;C</h1>
+                </div>
+                <div className="bottom">
+                  <ul>
+                    <li>Humidity : {data.main.humidity}</li>
+                    <li>Wind : {data.wind.speed} Km/h</li>
+                    <li>Latitude : {data.coord.lat}</li>
+                    <li>Longitude : {data.coord.lon}</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="right">
+                <div className="top">
+                  <img src={svg1} alt="Illustration" />
+                </div>
+                <div className="bottom">
+                  <LocationOnIcon className="location-icon" />
+                  <p>{data.name}</p>
+                  <span>{data.sys.country}</span>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <Loader />
+          )}
+        </>
       )}
     </>
   );
