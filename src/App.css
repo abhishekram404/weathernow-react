@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.App {
+  height: 100vh;
+  background: -webkit-gradient(linear, left top, left bottom, from(#6c64ef), to(#ffffff));
+  background: linear-gradient(#6c64ef, #ffffff);
+  overflow: hidden;
+}
+/*# sourceMappingURL=App.css.map */

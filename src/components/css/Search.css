@@ -1,0 +1,113 @@
+.search-container {
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 60% 40%;
+      grid-template-columns: 60% 40%;
+}
+
+.search-container .left,
+.search-container .right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.search-container .left form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.search-container .left form .input-group {
+  overflow: hidden;
+  border-radius: 25px;
+  border: 5px solid #6c64ef;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.search-container .left form .input-group span {
+  width: 70px;
+  height: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-right: 0.5px solid grey;
+}
+
+.search-container .left form .input-group span .location-icon {
+  font-size: 3.5rem;
+  color: #6c64ef;
+}
+
+.search-container .left form .input-group input {
+  border: none;
+  outline: none;
+  width: 450px;
+  padding: 0px 20px;
+  font-size: 1.5rem;
+  font-family: "Source Sans Pro", sans-serif;
+  -webkit-box-sizing: unset;
+          box-sizing: unset;
+}
+
+.search-container .left form button {
+  background-color: #6c64ef;
+  border: none;
+  outline: none;
+  margin: 20px 0px;
+  -webkit-box-sizing: unset;
+          box-sizing: unset;
+  padding: 15px 30px;
+  color: white;
+  font-size: 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 30px;
+  font-family: "Montserrat";
+  font-weight: bold;
+}
+
+.search-container .left form button p {
+  margin: 0px 10px;
+}
+
+.search-container .right {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.search-container .right img {
+  width: 600px;
+}
+/*# sourceMappingURL=Search.css.map */

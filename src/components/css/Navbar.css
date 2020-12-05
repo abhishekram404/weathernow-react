@@ -1,0 +1,120 @@
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  background: transparent;
+  padding: 30px 50px;
+}
+
+nav .brand-logo {
+  color: white;
+  font-size: 2.5rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+nav .brand-logo .weather-icon {
+  font-size: 2.5rem;
+  -webkit-transform: translate(0px, 3px);
+          transform: translate(0px, 3px);
+}
+
+nav .brand-logo p {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  margin: 0px 10px;
+}
+
+nav form .input-group {
+  overflow: hidden;
+  border-radius: 25px;
+  border: 5px solid #6c64ef;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+nav form .input-group span {
+  width: 50px;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-right: 0.5px solid grey;
+}
+
+nav form .input-group span .location-icon {
+  font-size: 2rem;
+  color: #6c64ef;
+}
+
+nav form .input-group input {
+  border: none;
+  outline: none;
+  width: 250px;
+  padding: 0px 10px;
+  font-size: 1rem;
+  font-family: "Source Sans Pro", sans-serif;
+  -webkit-box-sizing: unset;
+          box-sizing: unset;
+}
+
+nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style-type: none;
+  font-size: 1.6rem;
+  font-family: "Montserrat";
+  font-weight: 500;
+}
+
+nav ul li {
+  margin: 0px 40px;
+  padding-bottom: 10px;
+  position: relative;
+  color: white;
+  cursor: pointer;
+}
+
+nav ul .active::before {
+  width: 100%;
+}
+
+nav ul li::before {
+  content: "";
+  background-color: white;
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  width: 30%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+nav ul li:hover::before {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+/*# sourceMappingURL=Navbar.css.map */
