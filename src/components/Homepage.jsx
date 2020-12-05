@@ -29,7 +29,7 @@ const Homepage = (props) => {
         } else {
           setSearched(props.query);
         }
-        link = `http://api.openweathermap.org/data/2.5/weather?q=${props.query}&units=metric&appId=b59f2b6e8322e621458fe6467f9c31db`;
+        link = `https://api.openweathermap.org/data/2.5/weather?q=${props.query}&units=metric&appId=b59f2b6e8322e621458fe6467f9c31db`;
 
         const getWeatherData = async () => {
           try {
