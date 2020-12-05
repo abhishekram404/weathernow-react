@@ -156,7 +156,6 @@
 
 @media only screen and (max-width: 840px) {
   .container {
-    overflow: hidden;
     position: relative;
     display: -webkit-box;
     display: -ms-flexbox;

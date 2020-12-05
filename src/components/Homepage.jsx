@@ -100,7 +100,6 @@ const Homepage = (props) => {
                 </div>
               </div>
               <div className="right">
-                <div className="layer"></div>
                 <div className="top">
                   <img src={svg1} alt="Illustration" />
                 </div>
