@@ -2,13 +2,22 @@
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
+}
+#root {
+  overflow: hidden;
 }
 
 .App {
   height: 100vh;
-  background: -webkit-gradient(linear, left top, left bottom, from(#6c64ef), to(#ffffff));
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#6c64ef),
+    to(#ffffff)
+  );
   background: linear-gradient(#6c64ef, #ffffff);
-  overflow: hidden;
+  overflow: hidden !important;
 }
 /*# sourceMappingURL=App.css.map */

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CloudQueueIcon from "@material-ui/icons/CloudQueue";
-import LocationOnIcon from "@material-ui/icons/LocationOn";
+import SearchIcon from "@material-ui/icons/Search";
+
 import "./css/Navbar.css";
 import { BrowserRouter as Router, NavLink } from "react-router-dom";
 const Navbar = (props) => {
@@ -32,7 +33,7 @@ const Navbar = (props) => {
       <form action="#" onSubmit={handleSubmit}>
         <div className="input-group">
           <span>
-            <LocationOnIcon className="location-icon" />
+            <SearchIcon className="location-icon" />
           </span>
           <input
             value={query}

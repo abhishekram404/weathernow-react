@@ -21,7 +21,7 @@ const Homepage = (props) => {
       // If 'searched' state is defined , do this
 
       if (props.query) {
-        if (props.query == searched) {
+        if (props.query === searched) {
           if (isError) {
             return;
           }
@@ -92,9 +92,15 @@ const Homepage = (props) => {
                     <li>Latitude : {data.coord.lat}</li>
                     <li>Longitude : {data.coord.lon}</li>
                   </ul>
+                  <span className="hidden">
+                    <LocationOnIcon className="location-icon" />
+                    <p>{data.name}</p>
+                    <span>{data.sys.country}</span>
+                  </span>
                 </div>
               </div>
               <div className="right">
+                <div className="layer"></div>
                 <div className="top">
                   <img src={svg1} alt="Illustration" />
                 </div>

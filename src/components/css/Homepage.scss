@@ -2,6 +2,7 @@
   height: 100%;
   display: grid;
   grid-template-columns: 50% 50%;
+  overflow: hidden;
   .left {
     display: grid;
     grid-template-rows: 40% 60%;
@@ -49,12 +50,18 @@
           border: 2px solid #6c64ef;
         }
       }
+      .hidden {
+        display: none;
+      }
     }
   }
   .right {
     display: grid;
     grid-template-rows: 60% 40%;
     height: 100%;
+    .layer {
+      display: none;
+    }
     .top,
     .bottom {
       display: flex;
@@ -78,6 +85,106 @@
       span {
         font-size: 1rem;
         // line-height: 5rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1260px) {
+  .container {
+    .left {
+      .top {
+        h1 {
+          font-size: 4rem;
+        }
+      }
+      .bottom {
+        ul {
+          padding: 10px 20px;
+          font-size: 1.4rem;
+          li {
+            padding: 10px 15px;
+          }
+        }
+      }
+    }
+
+    .right {
+      .top {
+        img {
+          width: 400px;
+        }
+      }
+      .bottom {
+        padding-top: 40px;
+        font-size: 3rem;
+        text-shadow: 1px 2px 20px #6c64ef;
+        .location-icon {
+          font-size: 3.5rem;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 840px) {
+  .container {
+    overflow: hidden;
+
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .left,
+    .right {
+      position: absolute;
+    }
+
+    .left {
+      z-index: 10;
+      grid-template-rows: 30% 70%;
+      .bottom {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        .hidden {
+          display: flex;
+          color: #6c64ef;
+          padding-top: 40px;
+          font-size: 3rem;
+          text-shadow: 1px 2px 20px #6c64ef;
+          .location-icon {
+            font-size: 3.5rem;
+          }
+          p {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 600;
+          }
+          span {
+            font-size: 1rem;
+            // line-height: 5rem;
+          }
+        }
+      }
+    }
+
+    .right {
+      position: relative;
+      height: 80%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      filter: blur(10px);
+
+      .top {
+        z-index: 2;
+        img {
+          width: 350px;
+        }
+      }
+      .bottom {
+        display: none;
       }
     }
   }
