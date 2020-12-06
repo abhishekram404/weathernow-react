@@ -55,7 +55,7 @@ const Homepage = (props) => {
             setLon(position.coords.longitude.toString());
 
             if (lat && lon) {
-              link = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appId=b59f2b6e8322e621458fe6467f9c31db`;
+              link = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appId=b59f2b6e8322e621458fe6467f9c31db`;
 
               const getWeatherData = async () => {
                 var weatherData = await axios(link);
